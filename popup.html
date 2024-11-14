@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MailMinds AI Settings</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    /* Critical styles to prevent white dots */
+    body {
+      margin: 0;
+      padding: 0;
+      width: 400px;
+      background-color: var(--background-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .settings-container {
+      padding: 16px;
+      height: 100%;
+      overflow-y: auto;
+      background-color: var(--background-primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-container">
+    <header class="header">
+      <img src="../icons/icon128.png" alt="MailMinds AI" class="logo">
+      <h1>MailMinds AI</h1>
+      <span class="version">v1.0.0</span>
+    </header>
+
+    <main>
+      <section class="settings-section">
+        <h2>Language Settings</h2>
+        <div class="setting-item">
+          <label for="defaultLanguage">Default Language:</label>
+          <select id="defaultLanguage" class="select-input">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label class="toggle-label">
+            <input type="checkbox" id="autoTranslate" class="toggle-input" checked>
+            <span class="toggle-slider"></span>
+            <span>Auto-translate emails</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Summary Settings</h2>
+        <div class="setting-item">
+          <label class="toggle-label">
+            <input type="checkbox" id="autoSummarize" class="toggle-input" checked>
+            <span class="toggle-slider"></span>
+            <span>Auto-summarize emails</span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label class="toggle-label">
+            <input type="checkbox" id="showActionItems" class="toggle-input" checked>
+            <span class="toggle-slider"></span>
+            <span>Extract action items</span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label for="summaryLength">Summary Length:</label>
+          <select id="summaryLength" class="select-input">
+            <option value="short">Brief</option>
+            <option value="medium" selected>Medium</option>
+            <option value="long">Detailed</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Response Settings</h2>
+        <div class="setting-item">
+          <label class="toggle-label">
+            <input type="checkbox" id="suggestResponses" class="toggle-input" checked>
+            <span class="toggle-slider"></span>
+            <span>Generate response suggestions</span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label for="responseStyle">Response Style:</label>
+          <select id="responseStyle" class="select-input">
+            <option value="formal">Formal</option>
+            <option value="casual" selected>Casual</option>
+            <option value="friendly">Friendly</option>
+            <option value="professional">Professional</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Appearance</h2>
+        <div class="setting-item">
+          <label for="theme">Theme:</label>
+          <select id="theme" class="select-input">
+            <option value="system">System Default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label class="toggle-label">
+            <input type="checkbox" id="compactMode" class="toggle-input">
+            <span class="toggle-slider"></span>
+            <span>Compact Mode</span>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <footer class="settings-footer">
+      <button id="saveSettings" class="primary-button">Save Settings</button>
+      <button id="resetSettings" class="secondary-button">Reset to Default</button>
+      <div id="saveConfirmation" class="save-confirmation hidden">Settings saved successfully!</div>
+    </footer>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

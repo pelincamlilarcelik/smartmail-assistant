@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Multilingual Email Summarizer & Response Generator",
+  "version": "1.0",
+  "description": "AI-powered email summary and response tool with multilingual support",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "alarms",
+    "notifications",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://mail.google.com/*",
+    "*://*.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [{
+    "matches": ["*://mail.google.com/*", "*://*.google.com/*"],
+    "js": [
+      "content.js"
+    ],
+    "css": [
+      "styles.css"
+    ]
+  }],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self'"
+  }
+}
